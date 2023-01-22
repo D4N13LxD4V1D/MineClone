@@ -11,7 +11,7 @@ Window::Window(int width, int height, const char *title, bool fullscreen = false
         window = glfwCreateWindow(
             mode->width,
             mode->height,
-            windowTitle,
+            title,
             monitor,
             NULL // Share, use this to share resources with another window
         );
@@ -19,9 +19,9 @@ Window::Window(int width, int height, const char *title, bool fullscreen = false
     else
     {
         window = glfwCreateWindow(
-            windowWidth,
-            windowHeight,
-            windowTitle,
+            width,
+            height,
+            title,
             NULL,
             NULL // Share, use this to share resources with another window
         );

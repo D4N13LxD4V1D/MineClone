@@ -5,7 +5,7 @@
 class Window
 {
 public:
-    Window(int width, int height, const char *title, bool fullscreen = false);
+    Window(int width, int height, const char *title, bool fullscreen);
     ~Window();
 
     void update();
