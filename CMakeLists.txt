@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-include(cmake/GLAD.cmake)
-include(cmake/GLFW.cmake)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+find_package(GLAD REQUIRED)
+find_package(GLFW REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(tests)
