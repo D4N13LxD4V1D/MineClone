@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    // Set OpenGL version to 3.3 core
+    // Set minimum OpenGL version to 3.3 core
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -61,6 +61,9 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
+    // Print OpenGL version
+    std::cout << "Using OpenGL " << glGetString(GL_VERSION) << "!" << std::endl;
+
     // Get the framebuffer size (for retina displays)
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
@@ -75,9 +78,6 @@ int main(int argc, char const *argv[])
     glfwSetErrorCallback(error_callback);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetKeyCallback(window, key_callback);
-
-    // Print OpenGL version
-    std::cout << "Using OpenGL " << glGetString(GL_VERSION) << "!" << std::endl;
 
     // Vertex data
     float vertices[] = {
