@@ -11,13 +11,15 @@ find_package(GLFW REQUIRED)
 find_package(GTest REQUIRED)
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp")
-file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "src/*.hpp")
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-add_library(LIB ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} PRIVATE glad glfw)
 
 enable_testing()
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS "tests/*.cpp")
 add_executable(TESTS ${TEST_SOURCES})
-target_link_libraries(TESTS GTest::gtest_main LIB glad glfw)
+target_include_directories(TESTS PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_link_libraries(TESTS GTest::gtest_main glad glfw)
+
+include(GoogleTest)
+gtest_discover_tests(TESTS)

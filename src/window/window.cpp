@@ -1,6 +1,7 @@
 #include "window.hpp"
 
-Window::Window(int width, int height, const char *title, bool fullscreen = false) {
+Window::Window(int width, int height, const char *title, bool fullscreen = false)
+{
     if (!glfwInit())
     {
         std::cout << "Failed to initialize GLFW" << std::endl;
@@ -58,31 +59,38 @@ Window::Window(int width, int height, const char *title, bool fullscreen = false
     glViewport(0, 0, width, height);
 }
 
-Window::~Window() {
+Window::~Window()
+{
     glfwDestroyWindow(window);
 }
 
-void Window::swapBuffers() {
+void Window::swapBuffers()
+{
     glfwSwapBuffers(window);
 }
 
-void Window::update() {
+void Window::update()
+{
     glfwPollEvents();
 }
 
-bool Window::shouldClose() {
+bool Window::shouldClose()
+{
     return glfwWindowShouldClose(window);
 }
 
-void Window::close() {
+void Window::close()
+{
     glfwSetWindowShouldClose(window, true);
 }
 
-bool Window::isFullScreen() {
+bool Window::isFullScreen()
+{
     return glfwGetWindowMonitor(window) != NULL;
 }
 
-void Window::setFullScreen(bool fullscreen) {
+void Window::setFullScreen(bool fullscreen)
+{
     if (fullscreen)
     {
         GLFWmonitor *monitor = glfwGetPrimaryMonitor();
@@ -97,8 +105,7 @@ void Window::setFullScreen(bool fullscreen) {
             0,
             mode->width,
             mode->height,
-            mode->refreshRate
-        );
+            mode->refreshRate);
     }
     else
     {
@@ -109,7 +116,6 @@ void Window::setFullScreen(bool fullscreen) {
             0,
             1280,
             720,
-            0
-        );
+            0);
     }
 }

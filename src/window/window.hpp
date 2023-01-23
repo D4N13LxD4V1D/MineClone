@@ -19,6 +19,7 @@ public:
 
     bool isFullScreen();
     void setFullScreen(bool fullscreen);
+
 private:
     GLFWwindow *window;
 };

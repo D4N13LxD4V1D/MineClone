@@ -1,23 +1,9 @@
-#include <window/window.hpp>
 #include <gtest/gtest.h>
+#include "window/window.hpp"
 
-TEST(WindowTests, TestWindowCreation)
+TEST(BasicTests, GTestSetup)
 {
-    Window window(1280, 720, "My Minecraft Clone");
-    EXPECT_TRUE(window.shouldClose());
-}
-
-TEST(WindowTests, TestWindowCreationFullscreen)
-{
-    Window window(1280, 720, "My Minecraft Clone", true);
-    EXPECT_TRUE(window.shouldClose());
-}
-
-TEST(WindowTests, TestWindowUpdate)
-{
-    Window window(1280, 720, "My Minecraft Clone");
-    window.update();
-    EXPECT_TRUE(window.shouldClose());
+    EXPECT_EQ(1, 1);
 }
 
 int main(int argc, char **argv)

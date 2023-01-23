@@ -1,5 +1,8 @@
 #include "input.hpp"
 
+MousePosition Input::mousePosition;
+bool Input::keys[1024];
+
 Input::Input()
 {
     for (int i = 0; i < 1024; i++)
