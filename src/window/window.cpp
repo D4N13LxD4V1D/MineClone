@@ -96,10 +96,9 @@ void Window::setFullScreen(bool fullscreen)
 {
     if (fullscreen)
     {
+        std::cout << "Setting fullscreen mode" << std::endl;
         GLFWmonitor *monitor = glfwGetPrimaryMonitor();
         const GLFWvidmode *mode = glfwGetVideoMode(monitor);
-        std::cout << mode->width << std::endl;
-        std::cout << mode->height << std::endl;
 
         glfwSetWindowMonitor(
             window,
@@ -112,6 +111,7 @@ void Window::setFullScreen(bool fullscreen)
     }
     else
     {
+        std::cout << "Setting windowed mode" << std::endl;
         glfwSetWindowMonitor(
             window,
             NULL,
@@ -121,4 +121,5 @@ void Window::setFullScreen(bool fullscreen)
             720,
             0);
     }
+    glfwWaitEventsTimeout(0.7);
 }
