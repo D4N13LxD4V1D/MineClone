@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include "window/window.hpp"
 
 TEST(BasicTests, GTestSetup)
 {
