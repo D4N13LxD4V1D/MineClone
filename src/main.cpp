@@ -10,9 +10,6 @@ int main(int argc, char const *argv[])
     {
         window.update();
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
         if (Input::isKeyPressed(GLFW_KEY_F1))
         {
             bool isFullScreen = window.isFullScreen();
