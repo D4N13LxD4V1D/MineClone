@@ -325,6 +325,9 @@ int main(int argc, char const *argv[])
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         lightingShader.setMat4("projection", projection);
 
+        // Camera position
+        lightingShader.setVec3("viewPos", camera.Position);
+
         // Draw box
         glBindVertexArray(containerVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
